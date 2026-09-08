@@ -95,7 +95,7 @@
   .invite {
     margin: 0.9em 0 0; max-width: 92vw;
     font-family: "Covered By Your Grace", cursive; font-weight: 400; font-style: italic;
-    font-size: min(1.95vw, 26px); color: var(--ink-soft); letter-spacing: 0.3px; line-height: 1.5;
+    font-size: clamp(16px, 1.95vw, 26px); color: var(--ink-soft); letter-spacing: 0.3px; line-height: 1.5;
   }
 
   .head {
@@ -207,6 +207,9 @@
     .canvas { min-height: auto; padding: 12vh 7vw 12vh; }
     .headline { position: static; width: auto; margin: 0 0 6vh; }
     .hero { font-size: clamp(32px, 10vw, 58px); white-space: normal; }
+    .invite { font-size: clamp(16px, 4.3vw, 21px); }
+    .run { font-size: 5vw; }
+    .line .track { animation-duration: 240s; }
     .head { position: static; display: block; margin: 0 0 4.5vh; font-size: clamp(32px, 9vw, 50px); white-space: normal; }
     .hint { display: none; }
     .body { margin: 5vh auto; padding: 26px 22px 30px; }
@@ -430,7 +433,7 @@
     var ops   = [0.03, 0.05, 0.03, 0.08, 0.03, 0.05, 0.03, 0.07, 0.03, 0.045];
     var tints = ['', '', ' g', '', '', ' b', '', '', ' r', ''];
     var frag = document.createDocumentFragment();
-    for (var i = 0; i < 55; i++) {
+    for (var i = 0, N = window.innerWidth < 820 ? 28 : 55; i < N; i++) {
       var line = document.createElement('div');
       line.className = 'line' + tints[i % tints.length] + (i % 2 ? ' rev' : '');
       line.style.setProperty('--op', ops[i % ops.length]);
