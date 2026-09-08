@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Writing Workshops · Neha Chaturvedi</title>
+<meta name="description" content="A writing practice with Neha Chaturvedi — prompts, methods and held space for building the container for your writing practice." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Writing Workshops · Neha Chaturvedi" />
+<meta property="og:description" content="An invitation to nurture your commitment to a creative practice that anchors you through the journey of life." />
+<meta property="og:image" content="https://hercules.app/og/app/01KMGDE2MQDYQ406X2VSAFG0E0.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Patrick+Hand&family=Nothing+You+Could+Do&family=Mrs+Saint+Delafield&family=Kalam:wght@300;400&family=Liu+Jian+Mao+Cao&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg:        #0c0807;
+    --panel:     #140d0b;
+    --ink:       #efe7db;
+    --ink-soft:  #b6aa98;
+    --ink-faint: #857868;
+    --gold:      #c9a24a;
+    --gold-2:    #ecd188;
+    --red:       #ff3b52;
+    --red-soft:  #ff6a7c;
+    --blue:      #37c6ff;
+    --blue-soft: #7fd8ff;
+    --line:      rgba(239, 231, 219, 0.14);
+    --line-soft: rgba(239, 231, 219, 0.07);
+    --hand:      "Mrs Saint Delafield", "Segoe Script", cursive;
+    --scribble:  "Mrs Saint Delafield", "Kalam", "Liu Jian Mao Cao", cursive;
+    --serif:     "Spectral", Georgia, serif;
+    --display:   "Cormorant Garamond", Georgia, serif;
+    --ui:        "Inter", system-ui, sans-serif;
+    --deva:      "Noto Serif Devanagari", "Spectral", serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: var(--serif);
+    color: var(--ink);
+    background: var(--bg);
+    background-image:
+      radial-gradient(60% 55% at 84% 4%, rgba(201,162,74,0.10), transparent 60%),
+      radial-gradient(55% 50% at 4% 98%, rgba(55,198,255,0.06), transparent 62%),
+      radial-gradient(48% 46% at 96% 96%, rgba(255,59,82,0.06), transparent 62%);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: var(--blue-soft); text-decoration: none; border-bottom: 1px solid rgba(127,216,255,0.35); }
+  a:hover { color: var(--gold-2); border-color: var(--gold); }
+  em { font-style: italic; }
+  .deva { font-family: var(--deva); line-height: 1.95; }
+
+  /* ============ FLOWING HANDWRITING (background) ============ */
+  .river {
+    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    -webkit-mask-image: radial-gradient(150% 130% at 50% 45%, #000 60%, transparent 100%);
+            mask-image: radial-gradient(150% 130% at 50% 45%, #000 60%, transparent 100%);
+  }
+  .line { opacity: var(--op, 0.10); color: var(--ink); }
+  .line.g { color: var(--gold-2); } .line.r { color: var(--red-soft); } .line.b { color: var(--blue-soft); }
+  .line .track { display: flex; width: max-content; animation: flow var(--d, 120s) linear infinite; }
+  .line.rev .track { animation-direction: reverse; }
+  @keyframes flow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .run { font-family: var(--scribble); font-weight: 400; white-space: nowrap; font-size: 1.5vw; line-height: 1.4; padding-right: 0.9vw; filter: blur(0.5px); }
+
+  /* ============ POSTER CANVAS (single screen) ============ */
+  .canvas { position: relative; z-index: 1; min-height: 100vh; width: 100%; }
+
+  /* shared gentle colour-drift for hero + heads (the movement she loves) */
+  @keyframes hue { from { background-position: 0 0; } to { background-position: 300% 0; } }
+  @keyframes float { from { translate: 0 0; } to { translate: 14px -7px; } }
+  @keyframes floatlead { from { translate: 0 0; } to { translate: 20px -10px; } }
+
+  .headline { position: absolute; top: 9vh; left: 10vw; width: 87vw; z-index: 1; animation: floatlead 9s ease-in-out infinite alternate; }
+  .hero {
+    margin: 0; padding: 0.06em 0.12em 0.1em;
+    font-family: "Nothing You Could Do", cursive; font-weight: 400; line-height: 1.15; white-space: nowrap;
+    font-size: min(3.6vw, 52px);
+    color: var(--gold-2); text-shadow: 0 2px 14px rgba(0,0,0,0.85); opacity: 0.9;
+  }
+  .hero em {
+    font-style: normal;
+    background: linear-gradient(92deg, var(--red) 0%, var(--red-soft) 45%, var(--gold-2) 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+    animation: hue 12s ease-in-out infinite alternate;
+  }
+  .invite {
+    margin: 0.9em 0 0; max-width: 92vw;
+    font-family: "Covered By Your Grace", cursive; font-weight: 400; font-style: italic;
+    font-size: min(1.95vw, 26px); color: var(--ink-soft); letter-spacing: 0.3px; line-height: 1.5;
+  }
+
+  .head {
+    position: absolute; top: var(--t); left: var(--l);
+    -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 0.05em 0.14em 0.1em; margin: 0; cursor: pointer;
+    font-family: var(--hand); font-weight: 400; line-height: 1.14;
+    font-size: var(--fs, clamp(32px, 3.8vw, 56px)); white-space: nowrap;
+    color: var(--blue); -webkit-text-fill-color: currentColor;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.85)); opacity: 0.9;
+    transition: color .4s ease;
+    animation: float calc(var(--hd, 15s) / 2) ease-in-out infinite alternate;
+  }
+  .head.acc-red  { color: var(--red); }
+  .head.acc-blue { color: var(--blue); }
+  .head:hover, .head:focus-visible, .head[aria-expanded="true"] {
+    background-image: linear-gradient(90deg, var(--red), var(--blue) 50%, var(--red));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+    animation: float calc(var(--hd, 15s) / 2) ease-in-out infinite alternate, hue 5s linear infinite;
+  }
+  .head.acc-blue:hover, .head.acc-blue:focus-visible, .head.acc-blue[aria-expanded="true"] {
+    background-image: linear-gradient(90deg, var(--blue), var(--red) 50%, var(--blue));
+  }
+  .head:focus-visible { outline: 2px dashed var(--gold); outline-offset: 6px; border-radius: 4px; }
+
+  /* ============ OVERLAY MODAL (content) ============ */
+  .panel { position: fixed; inset: 0; z-index: 60; display: none; }
+  .panel.open { display: block; }
+  .panel .scrim { position: absolute; inset: 0; background: rgba(6,4,3,0.72); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .body {
+    position: relative; z-index: 1; margin: 7vh auto; max-width: 720px; width: calc(100% - 40px);
+    max-height: 86vh; overflow: auto;
+    background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--gold);
+    border-radius: 8px; box-shadow: 0 40px 90px -40px rgba(0,0,0,0.95);
+    padding: 32px 36px 38px; font-size: 17px; line-height: 1.95; color: var(--ink-soft); letter-spacing: 0.2px;
+    animation: rise .35s ease;
+  }
+  @keyframes rise { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .body p { margin: 0 0 1.5em; } .body p:last-child { margin-bottom: 0; }
+  .sheet-close { position: sticky; top: 0; float: right; margin: -8px -10px 0 0; background: none; border: 0; cursor: pointer; font-family: var(--ui); font-size: 26px; line-height: 1; color: var(--ink-faint); transition: color .2s ease; }
+  .sheet-close:hover { color: var(--red-soft); }
+  .sheet-title { font-family: var(--display); font-weight: 500; font-style: italic; font-size: clamp(30px, 3.6vw, 44px); color: var(--gold-2); line-height: 1.15; margin: 0 0 16px; }
+
+  .pull { font-family: var(--display); font-style: italic; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; color: var(--gold-2); margin: 0 0 20px; padding-left: 16px; border-left: 2px solid rgba(255,59,82,0.5); }
+  .lead { font-family: var(--display); font-style: italic; font-size: 23px; color: var(--gold-2); line-height: 1.5; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 18px; }
+  .facts .f { border: 1px solid var(--line-soft); border-radius: 10px; padding: 14px 16px; background: rgba(255,255,255,0.025); color: var(--ink-soft); }
+  .facts .f b { font-family: var(--display); font-weight: 500; font-size: 21px; color: var(--gold); display: block; margin: 4px 0 6px; }
+  .facts .f .k { display: block; font-family: var(--ui); text-transform: uppercase; letter-spacing: .18em; font-size: 10.5px; color: var(--blue-soft); }
+  dl.gtk { margin: 8px 0 18px; border: 1px solid var(--line-soft); border-radius: 10px; padding: 2px 16px; background: rgba(255,255,255,0.02); }
+  dl.gtk > div { display: grid; grid-template-columns: 200px 1fr; gap: 4px 22px; padding: 11px 0; border-top: 1px solid var(--line-soft); }
+  dl.gtk > div:first-child { border-top: 0; }
+  dl.gtk dt { font-family: var(--ui); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); }
+  dl.gtk dd { margin: 0; color: var(--ink-soft); }
+  .portrait { float: right; width: clamp(120px, 26%, 180px); border-radius: 10px; margin: 2px 0 12px 20px; border: 1px solid var(--line); box-shadow: 0 14px 34px -16px rgba(0,0,0,0.85); }
+  @media (max-width: 620px){ dl.gtk > div { grid-template-columns: 1fr; gap: 2px; } .facts { grid-template-columns: 1fr; } }
+
+  .credentials { list-style: none; padding: 4px 18px; margin: 16px 0 0; border: 1px solid var(--line-soft); border-radius: 10px; background: rgba(255,255,255,0.02); }
+  .credentials li { padding: 9px 0 9px 24px; position: relative; color: var(--ink-soft); border-top: 1px solid var(--line-soft); }
+  .credentials li::before { content: "\270e"; position: absolute; left: 0; color: var(--gold); }
+  .credentials li:first-child { border-top: 0; }
+
+  .fmt { border: 1px solid var(--line-soft); border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; background: rgba(255,255,255,0.02); }
+  .fmt h3 { font-family: var(--display); font-weight: 500; font-size: 27px; margin: 6px 0 2px; color: var(--ink); }
+  .fmt .price { font-family: var(--display); font-size: 22px; color: var(--gold-2); margin: 0 0 8px; }
+  .fmt .tag { font-family: var(--ui); font-size: 10px; text-transform: uppercase; letter-spacing: .16em; padding: 4px 11px; border-radius: 40px; }
+  .fmt .tag.soon { background: rgba(239,231,219,0.08); color: var(--ink-faint); }
+  a.reg-link { display: inline-block; border-bottom: 0; cursor: pointer; background: rgba(255,59,82,0.16); color: var(--red-soft); transition: filter .2s ease; }
+  a.reg-link:hover { filter: brightness(1.18); color: var(--red-soft); }
+  .fmt ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink-soft); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 0; }
+  .chip { font-family: var(--display); font-weight: 500; font-size: 18px; color: var(--ink-soft); padding: 2px 14px; border: 1px solid var(--line); border-radius: 40px; }
+
+  .review { border: 1px solid var(--line-soft); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; background: rgba(255,255,255,0.02); }
+  .review > p { margin: 0 0 10px; }
+  .review .who { font-family: var(--ui); font-size: 13px; color: var(--ink-soft); }
+  .review .who b { color: var(--ink); font-weight: 600; }
+  .review .who small { display: block; color: var(--ink-faint); font-size: 12px; }
+  details { margin: 6px 0 4px; } summary { cursor: pointer; color: var(--blue-soft); font-family: var(--ui); font-size: 13px; } details p { margin-top: 10px; }
+
+  form { margin-top: 6px; }
+  .field { margin-bottom: 15px; }
+  label { display: block; font-family: var(--ui); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+  .req { color: var(--red-soft); }
+  input, select, textarea { width: 100%; font-family: var(--serif); font-size: 17px; color: var(--ink); background: rgba(0,0,0,0.3); border: 1px solid var(--line); border-radius: 4px; padding: 11px 13px; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); background: rgba(0,0,0,0.45); }
+  textarea { min-height: 88px; resize: vertical; }
+  option { background: #141010; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px){ .row2 { grid-template-columns: 1fr; } }
+  fieldset.checks { border: 1px solid var(--line); border-radius: 6px; margin: 4px 0 15px; padding: 12px 16px 14px; }
+  fieldset.checks legend { font-family: var(--ui); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); padding: 0 6px; }
+  label.chk { display: flex; align-items: flex-start; gap: 9px; font-family: var(--ui); font-size: 13.5px; color: var(--ink-soft); text-transform: none; letter-spacing: 0; margin: 6px 0; cursor: pointer; }
+  label.chk input { width: auto; accent-color: var(--gold); margin-top: 2px; }
+  .btn { font-family: var(--ui); font-weight: 600; font-size: 13px; letter-spacing: .04em; cursor: pointer; border: 0; border-radius: 4px; padding: 15px 22px; width: 100%;
+    background: linear-gradient(92deg, var(--gold) 0%, var(--red) 55%, var(--blue) 120%); background-size: 180% 100%; color: #120c0a; transition: background-position .3s ease, transform .2s ease; }
+  .btn:hover { background-position: 100% 0; color: #fff; transform: translateY(-1px); }
+  .form-note { font-family: var(--ui); font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
+  .form-note.center { text-align: center; margin-top: 12px; }
+  .form-status { min-height: 1.4em; margin: 10px 0; font-family: var(--ui); font-size: 14px; }
+  .form-status.ok { color: var(--gold-2); } .form-status.err { color: var(--red-soft); }
+  .contact-line { font-family: var(--ui); font-size: 14px; color: var(--ink-soft); }
+
+  /* ============ mobile: stack the poster ============ */
+  @media (max-width: 820px) {
+    .canvas { min-height: auto; padding: 12vh 7vw 12vh; }
+    .headline { position: static; width: auto; margin: 0 0 6vh; }
+    .hero { font-size: clamp(32px, 10vw, 58px); white-space: normal; }
+    .head { position: static; display: block; margin: 0 0 4.5vh; font-size: clamp(32px, 9vw, 50px); white-space: normal; }
+    .hint { display: none; }
+    .body { margin: 5vh auto; padding: 26px 22px 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track, .hero, .head, .headline, .panel .scrim, .body { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- flowing handwriting field -->
+<div class="river" id="river" aria-hidden="true"></div>
+
+<!-- single-screen poster: hero + all heads at a glance -->
+<main class="canvas">
+  <div class="headline">
+    <h1 class="hero">Build the <em>container</em> for your writing practice.</h1>
+    <p class="invite">An invitation to nurture your commitment to a creative practice that anchors you through the journey of life.</p>
+  </div>
+
+  <button class="head acc-red"  style="--t:45vh; --l:7vw;  --hd:13s;" aria-expanded="false" aria-controls="p-writing">on&nbsp;writing</button>
+  <button class="head acc-blue" style="--t:45vh; --l:60vw; --hd:16s;" aria-expanded="false" aria-controls="p-formats">the&nbsp;workshops</button>
+  <button class="head acc-red"  style="--t:54vh; --l:30vw; --hd:14s;" aria-expanded="false" aria-controls="p-neha">about&nbsp;neha</button>
+  <button class="head acc-red"  style="--t:63vh; --l:50vw; --hd:15s;" aria-expanded="false" aria-controls="p-register">register</button>
+  <button class="head acc-blue" style="--t:72vh; --l:15vw; --hd:17s;" aria-expanded="false" aria-controls="p-reviews">reviews</button>
+  <button class="head acc-blue" style="--t:80vh; --l:72vw; --hd:18s;" aria-expanded="false" aria-controls="p-contact">keep&nbsp;in&nbsp;touch</button>
+
+</main>
+
+<!-- ============ content overlays ============ -->
+<div class="panel" id="p-writing" role="dialog" aria-modal="true" aria-label="On writing">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">on writing</h2>
+    <p class="pull">Writing, as a practice and a process, is a container for what one can possibly think and articulate in language.</p>
+    <p>Writing can have several byproducts and outcomes. It can be a deep confession or a weapon of revolution. Over the years, it has revealed itself to be a space for grounding — for anchoring myself through the wild meanderings of my mind and heart.</p>
+    <p>It has been a space where I have found myself compulsively trapped and deliriously liberated. For the longest time, I have been drawn to, and biased towards, processes and pathways more than the outcome. To me, my practice is the only thing I can embody and commit to — the rest is all unknown and unseen, and part of a larger, constantly mutating, unraveling whole.</p>
+    <p class="lead">This workshop is an invitation to nurture your entry and commitment to a creative practice that anchors you through the journey of life.</p>
+  </div>
+</div>
+
+<div class="panel" id="p-neha" role="dialog" aria-modal="true" aria-label="About Neha">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">about neha</h2>
+    <img class="portrait" src="neha.jpg" alt="Neha Chaturvedi" />
+    <p>My journey with writing has been part of a larger creative practice of over two decades which includes visual art, performance, entrepreneurship and community building. An M.Phil in English Literature from the University of Delhi, I have explored writing in academic, journalistic, creative and introspective forms — and I support others working across them.</p>
+    <p>Besides briefly teaching critical theory at DU and conducting critical-thinking workshops for Master's students in Design at IIT-Bombay, I interned with Zubaan (a feminist publishing house) and wrote for The Times of India as a freelancer in the Response department, with over 300 bylines. My journey extended into filmmaking while working on postgraduate projects at FTII, and later co-directing the award-winning film <em>Our Odyssey is Red</em>.</p>
+    <p>Some of my writing and art is published in academic and literary journals and anthologies, including <em>Unpsychology</em> magazine, <em>Of Dry Tongues and Brave Hearts</em>, and <em>Doing Things with Stories — Narrative Change</em>. I have co-founded Agra Heritage Walks, the Hers is Ours NGO, and the ISOVI silver jewellery brand, and was a founding member of UP80, a transdisciplinary collaborative residential community in Agra. As a trained Warm Data host who works with modalities such as Collective Alchemy, I bring a particular ability to hold and work with groups. Most recently, I have been exploring AI, the place of technology in our lives, and how dreams and imagination work as portals for speculating, conceptualising and designing desirable futures.</p>
+    <ul class="credentials">
+      <li>M.Phil in English Literature, University of Delhi</li>
+      <li>300+ bylines · The Times of India (Response)</li>
+      <li>Co-director, award-winning film <em>Our Odyssey is Red</em></li>
+      <li>Co-founder — Agra Heritage Walks · Hers is Ours · ISOVI</li>
+      <li>Founding member, UP80 — transdisciplinary residential community, Agra</li>
+      <li>Trained Warm Data host · works with Collective Alchemy</li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel" id="p-formats" role="dialog" aria-modal="true" aria-label="The workshops">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">the workshops</h2>
+    <div class="facts">
+      <div class="f"><span class="k">What</span><b>Held space</b>Prompts &amp; methods to build and strengthen your practice.</div>
+      <div class="f"><span class="k">For who</span><b>14 years and older</b>Any writer — first-timers, the blocked, the irregular, the refining.</div>
+      <div class="f"><span class="k">How</span><b>Group &amp; personal</b>A shared daily rhythm, plus one-to-one review of your work.</div>
+    </div>
+    <dl class="gtk">
+      <div><dt>Group size</dt><dd>Kept intimate at 8–10 people. For more, a separate cohort is opened.</dd></div>
+      <div><dt>Language of instruction</dt><dd>English, Hindi, or a mix — shaped around the participants.</dd></div>
+      <div><dt>Language of writing</dt><dd>Write in English, Hindi, or your native language. Detailed review is offered in English and Hindi only.</dd></div>
+      <div><dt>Timings</dt><dd>Decided together after the first group meeting, around everyone's comfort and convenience.</dd></div>
+    </dl>
+    <div class="fmt">
+      <a href="#p-register" class="tag reg-link" data-open="p-register">Registration open — hold your place &rarr;</a>
+      <h3>21 Days · Online Group</h3>
+      <p class="price">₹10,000</p>
+      <p>The full container. Daily-rhythm group practice over three weeks, plus dedicated one-to-one review time.</p>
+      <ul><li>21 × 1-hr group sessions</li><li>2 × 1-hr individual review sessions</li><li>Online</li></ul>
+    </div>
+    <div class="fmt">
+      <span class="tag soon">Coming soon</span>
+      <h3>3 Hours · Ground</h3>
+      <p class="price">Announcing soon</p>
+      <p>A focused, single-sitting intensive to ground into practice — offered both online and in person.</p>
+      <ul><li>One 3-hour session</li><li>Online &amp; in-person cohorts</li><li>Ideal as a first taste</li></ul>
+    </div>
+    <div class="fmt">
+      <span class="tag soon">Coming soon</span>
+      <h3>6 Weeks · Individual</h3>
+      <p class="price">Announcing soon</p>
+      <p>Deep individual writing support to unlock, sustain, or refine a specific body of work over six weeks.</p>
+      <ul><li>One-to-one across 6 weeks</li><li>Theme / block / existing work</li><li>Fully personalised</li></ul>
+    </div>
+    <p class="form-note" style="margin:16px 0 8px;">Also from Neha's studio — use <a href="#p-contact" data-open="p-contact">keep in touch</a> to hear first when these open:</p>
+    <div class="chips"><span class="chip">Reading</span><span class="chip">Critical Thinking</span><span class="chip">Poetry</span><span class="chip">Creative Process</span><span class="chip">Writing in Residence</span></div>
+  </div>
+</div>
+
+<div class="panel" id="p-reviews" role="dialog" aria-modal="true" aria-label="Reviews">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">reviews</h2>
+    <div class="review">
+      <p>&ldquo;Neha has enabled my writing like nothing else. Through bodywork and grounding practices I have been able to create work that speaks from my reality. I have been working with her on a wide range of themes — from my daydreams, to processing grief, to professional essays on technology and culture. She holds space for a range of emotions and intent, and I recommend her to anyone who's looking to find their voice through the written word.&rdquo;</p>
+      <p class="who"><b>Shreya</b><small>HCI researcher · visiting faculty, IISc &amp; Srishti · IDC, IIT Bombay</small></p>
+    </div>
+    <div class="review">
+      <p class="deva">&ldquo;मैंने 2015 में नेहा दीदी से एक राइटिंग वर्कशॉप ली थी। इस वर्कशॉप ने मुझे जीवन का एक नया अनुभव कराया। इसने लेखन को मेरे जीवन में इस तरह जोड़ा, मानो यह मेरे शरीर की कोई आंतरिक चेतना हो। इस वर्कशॉप में कोई पाबंदी नहीं थी—जैसा मन में आए, वैसा लिखो। एक क्षण के लिए भी ऐसा महसूस नहीं हुआ कि मैं लिख नहीं सकता। वही आत्मविश्वास आज भी मेरे भीतर जीवित है। इसी वजह से आज भी मेरे क्रोध, मेरी लालसाएँ और मेरे मिले-जुले, उथल-पुथल भरे भाव किसी कोरे कागज़ पर तैरते हुए दिखते हैं। मैं इन्हीं तैरते हुए शब्दों की नौका पर अपने कदम रखकर आगे बढ़ने का प्रयास करता रहता हूँ।&rdquo;</p>
+      <details>
+        <summary>Read the English (AI-assisted translation)</summary>
+        <p>In 2015, I attended a writing workshop led by Neha Didi. It integrated writing into my existence as if it were an inner consciousness within my body. There were no restrictions — write whatever comes to your heart. Not for a single moment did I feel that I couldn't write, and that same confidence remains alive within me today. Even now, my anger, my desires, and my turbulent emotions appear floating across a blank sheet of paper, and I keep striving to move forward, placing my steps upon the boat of these floating words.</p>
+      </details>
+      <p class="who"><b>Vikram</b><small>Primary school teacher · rural Uttar Pradesh · originally spoken in Hindi</small></p>
+    </div>
+    <div class="review">
+      <p><strong style="color:var(--gold-2); font-weight:500;">A journey of learning, unlearning and trusting myself.</strong> My journey with writing began in 2015, when I joined a workshop with Neha Chaturvedi. I came with a simple intention — to learn academic writing — but it transformed into something much deeper. It taught me not just how to write, but how to think, how to listen to my inner voice, and how to understand my own needs and experiences. Over the years, writing has become a daily practice, and I now practice this art with the young people in my team. One thing I hear from them again and again is: <em>&ldquo;Likhna khud ko samajhne jaisa hai&rdquo;</em> — writing feels like understanding yourself. The workshop gave me something far more valuable than the ability to write: it gave me trust in my own abilities and inner voice, and that trust continues to guide me.</p>
+      <details>
+        <summary>Read the original Hindi (Tanuj's own translation above)</summary>
+        <p class="deva">आज से लगभग 10 साल पहले मैं नेहा दीदी की लेखन कार्यशाला में सिर्फ कुछ शब्दों का घुमाव-फिराव, उपमा, अलंकार आदि लिखना सीखने के उद्देश्य से आया था। लेकिन इस कार्यशाला में मुझे लेखन से कहीं ज्यादा मिला। मैंने सीखा कि लेखन एक कला है, खुद को समझने का एक ज़रिया है। यह मेरे लिए learning के साथ-साथ unlearning की भी यात्रा रही। एक समय था जब मैं लोगों के सामने बोलने से डरता था, लेकिन धीरे-धीरे मैंने उस डर का सामना किया और राष्ट्रीय स्तर की वाद-विवाद प्रतियोगिता भी जीती। मैंने अपने सफर की शुरुआत एक Call Centre में काम करने से की थी और आज मैं Project Potential में Youth Vertical को लीड कर रहा हूँ। मेरे लिए इस कार्यशाला की सीख आज भी बहुत सरल है—एक कॉपी और कलम लेकर बैठना और लिखना। जो मन में आ रहा है, उसे लिखना, उसे सुनना और खुद पर भरोसा करना।</p>
+      </details>
+      <p class="who"><b>Tanuj</b><small>Leads the Youth Vertical, Project Potential · 7 years with rural youth</small></p>
+    </div>
+  </div>
+</div>
+
+<div class="panel" id="p-register" role="dialog" aria-modal="true" aria-label="Register">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">register</h2>
+    <p>Fill in your details and complete payment to confirm your seat in the 21-day online group. Places are limited so the group stays intimate. Your details help Neha prepare for the cohort and reach you with session links — we never share your information.</p>
+    <form id="registerForm" novalidate>
+      <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+      <div class="row2">
+        <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="phone">Phone / WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+      </div>
+      <div class="field"><label for="workshop">Which workshop <span class="req">*</span></label>
+        <select id="workshop" name="workshop" required>
+          <option value="" disabled selected>Select a workshop…</option>
+          <option value="21-day-online-group">21 Days · Online Group (open — ₹10,000)</option>
+          <option value="3-hour-ground">3 Hours · Ground (notify me)</option>
+          <option value="6-week-individual">6 Weeks · Individual (notify me)</option>
+          <option value="other-updates">Other workshops — keep me updated</option>
+        </select>
+      </div>
+      <div class="field"><label for="stage">Where are you in your writing?</label>
+        <select id="stage" name="stage">
+          <option value="" disabled selected>Choose what fits best…</option>
+          <option value="first-time">First time at writing</option>
+          <option value="facing-a-block">Facing a block</option>
+          <option value="need-regularity">Need support with regularity</option>
+          <option value="refine-existing">Unlock / refine a theme or existing work</option>
+        </select>
+      </div>
+      <div class="field"><label for="message">Anything you'd like Neha to know? (optional)</label><textarea id="message" name="message" placeholder="A theme you're drawn to, a question, a hope for this practice…"></textarea></div>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      <button type="submit" class="btn" id="submitBtn">Register &amp; proceed to payment</button>
+      <p class="form-note center">By registering you'll receive confirmation and payment details by email/WhatsApp.</p>
+    </form>
+  </div>
+</div>
+
+<div class="panel" id="p-contact" role="dialog" aria-modal="true" aria-label="Keep in touch">
+  <div class="scrim" data-close></div>
+  <div class="body">
+    <button class="sheet-close" data-close aria-label="Close">&times;</button>
+    <h2 class="sheet-title">keep in touch</h2>
+    <p class="contact-line">Questions, or want to be told when the next cohort opens? Leave a note below — it comes straight to Neha.</p>
+    <form id="contactForm" novalidate>
+      <div class="row2">
+        <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" autocomplete="name" /></div>
+        <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" name="email" type="email" autocomplete="email" required /></div>
+      </div>
+      <div class="field"><label for="c-message">Your message / question (optional)</label><textarea id="c-message" name="message" placeholder="Anything you'd like to ask…"></textarea></div>
+      <fieldset class="checks">
+        <legend>Keep me updated about</legend>
+        <label class="chk"><input type="checkbox" name="interest" value="Next 21-day cohort" /> The next 21-day cohort opening for registration</label>
+        <label class="chk"><input type="checkbox" name="interest" value="3 Hours · Ground" /> 3 Hours · Ground</label>
+        <label class="chk"><input type="checkbox" name="interest" value="6 Weeks · Individual" /> 6 Weeks · Individual</label>
+        <label class="chk"><input type="checkbox" name="interest" value="Reading" /> Reading</label>
+        <label class="chk"><input type="checkbox" name="interest" value="Critical Thinking" /> Critical Thinking</label>
+        <label class="chk"><input type="checkbox" name="interest" value="Poetry" /> Poetry</label>
+        <label class="chk"><input type="checkbox" name="interest" value="Creative Process" /> Creative Process</label>
+        <label class="chk"><input type="checkbox" name="interest" value="Writing in Residence" /> Writing in Residence</label>
+      </fieldset>
+      <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+      <button type="submit" class="btn" id="contactBtn">Send</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  /* ---------- flowing handwriting field ---------- */
+  (function () {
+    var river = document.getElementById('river');
+    if (!river) return;
+    var pool = (
+      'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz' +
+      '写作练习文字容器心笔纸语言创沉思自由流之向而己找根听声音书者道空' +
+      'लखनकदसमझजैवोगपतरंशब्दीे'
+    ).split('');
+    function rnd(n){ return Math.floor(Math.random() * n); }
+    function scrawl(words){
+      var s = '';
+      for (var w = 0; w < words; w++) {
+        var len = 2 + rnd(6);
+        for (var j = 0; j < len; j++) s += pool[rnd(pool.length)];
+        s += ' ';
+      }
+      return s;
+    }
+    var ops   = [0.03, 0.05, 0.03, 0.08, 0.03, 0.05, 0.03, 0.07, 0.03, 0.045];
+    var tints = ['', '', ' g', '', '', ' b', '', '', ' r', ''];
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 55; i++) {
+      var line = document.createElement('div');
+      line.className = 'line' + tints[i % tints.length] + (i % 2 ? ' rev' : '');
+      line.style.setProperty('--op', ops[i % ops.length]);
+      line.style.setProperty('--d', (110 + (i % 6) * 22) + 's');
+      var seg = scrawl(28);
+      line.innerHTML = '<div class="track"><span class="run">' + seg + '</span><span class="run">' + seg + '</span></div>';
+      frag.appendChild(line);
+    }
+    river.appendChild(frag);
+  })();
+
+  /* ---------- open / close overlays ---------- */
+  var openHead = null;
+  function closeAll() {
+    document.querySelectorAll('.panel.open').forEach(function (p) { p.classList.remove('open'); });
+    document.querySelectorAll('.head[aria-expanded="true"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    openHead = null;
+  }
+  function openPanel(id) {
+    var panel = document.getElementById(id);
+    if (!panel) return;
+    closeAll();
+    panel.classList.add('open');
+    var btn = document.querySelector('.head[aria-controls="' + id + '"]');
+    if (btn) { btn.setAttribute('aria-expanded', 'true'); openHead = btn; }
+    var body = panel.querySelector('.body'); if (body) body.scrollTop = 0;
+    var closeBtn = panel.querySelector('.sheet-close'); if (closeBtn) closeBtn.focus();
+  }
+  document.querySelectorAll('.head').forEach(function (btn) {
+    btn.addEventListener('click', function () { openPanel(btn.getAttribute('aria-controls')); });
+  });
+  document.querySelectorAll('[data-close]').forEach(function (el) {
+    el.addEventListener('click', function () { var h = openHead; closeAll(); if (h) h.focus(); });
+  });
+  document.querySelectorAll('[data-open]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); openPanel(a.getAttribute('data-open')); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { var h = openHead; closeAll(); if (h) h.focus(); } });
+
+  /* ---------- registration (see SETUP.md) ---------- */
+  var FORM_ENDPOINT = "https://formspree.io/f/xzebvvzq";
+  var CRM_MODE      = "formspree";
+  var PAYMENT_URL   = "https://rzp.io/rzp/VOffuEv";
+  var CONTACT_EMAIL = "nehachaturvediworkshops@gmail.com";
+
+  var form   = document.getElementById('registerForm');
+  var status = document.getElementById('formStatus');
+  var btn    = document.getElementById('submitBtn');
+  function setStatus(msg, kind) { status.textContent = msg; status.className = 'form-status ' + kind; }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var data = Object.fromEntries(new FormData(form).entries());
+    if (!data.name || !data.email || !data.phone || !data.workshop) { setStatus('Please fill in your name, email, phone and choose a workshop.', 'err'); return; }
+    data.submittedAt = new Date().toISOString();
+    data.source = 'writing-workshop-page';
+    var isPaid = data.workshop === '21-day-online-group';
+    btn.disabled = true; var original = btn.textContent; btn.textContent = 'Sending…';
+    try {
+      if (FORM_ENDPOINT && CRM_MODE === 'formspree') {
+        var res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error('bad response');
+        onSaved(isPaid, data);
+      } else if (FORM_ENDPOINT && CRM_MODE === 'google') {
+        await fetch(FORM_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+        onSaved(isPaid, data);
+      } else {
+        var subject = encodeURIComponent('Workshop registration — ' + data.workshop);
+        var body = encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nPhone/WhatsApp: ' + data.phone + '\nWorkshop: ' + data.workshop + '\nStage: ' + (data.stage || '\u2014') + '\nMessage: ' + (data.message || '\u2014'));
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+        setStatus('Opening your email app to send Neha your registration. If nothing happens, email ' + CONTACT_EMAIL + '.', 'ok');
+      }
+    } catch (err) { setStatus('Something went wrong — please try again in a moment.', 'err'); }
+    finally { btn.disabled = false; btn.textContent = original; }
+  });
+
+  function onSaved(isPaid, data) {
+    var first = data.name.split(' ')[0];
+    if (isPaid && PAYMENT_URL) { setStatus('Thank you, ' + first + '! Your details are in. Taking you to secure payment…', 'ok'); form.reset(); setTimeout(function () { window.location.href = PAYMENT_URL; }, 1400); }
+    else if (isPaid && !PAYMENT_URL) { setStatus('Thank you, ' + first + '! Your registration is in — Neha will email you the payment details shortly.', 'ok'); form.reset(); }
+    else { setStatus('Thank you, ' + first + '! You\u2019re on the list — we\u2019ll be in touch when this opens.', 'ok'); form.reset(); }
+  }
+
+  /* ---------- contact / updates ---------- */
+  (function () {
+    var cform = document.getElementById('contactForm');
+    if (!cform) return;
+    var cstatus = document.getElementById('contactStatus');
+    var cbtn = document.getElementById('contactBtn');
+    function cset(msg, kind) { cstatus.textContent = msg; cstatus.className = 'form-status ' + kind; }
+    cform.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var fd = new FormData(cform);
+      var data = { name: fd.get('name') || '', email: fd.get('email') || '', message: fd.get('message') || '' };
+      data.interests = fd.getAll('interest').join(', ');
+      if (!data.email) { cset('Please add your email so Neha can reach you.', 'err'); return; }
+      data.submittedAt = new Date().toISOString(); data.source = 'contact-and-updates';
+      cbtn.disabled = true; var orig = cbtn.textContent; cbtn.textContent = 'Sending…';
+      try {
+        if (FORM_ENDPOINT && CRM_MODE === 'formspree') {
+          var res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+          if (!res.ok) throw new Error('bad response');
+          cset('Thank you — your note is in. Neha will be in touch.', 'ok'); cform.reset();
+        } else if (FORM_ENDPOINT && CRM_MODE === 'google') {
+          await fetch(FORM_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+          cset('Thank you — your note is in. Neha will be in touch.', 'ok'); cform.reset();
+        } else {
+          var subject = encodeURIComponent('Workshop enquiry / updates');
+          var body = encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nMessage: ' + (data.message || '\u2014') + '\nInterested in: ' + (data.interests || '\u2014'));
+          window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+          cset('Opening your email app. If nothing happens, write to ' + CONTACT_EMAIL + '.', 'ok');
+        }
+      } catch (err) { cset('Something went wrong — please try again in a moment.', 'err'); }
+      finally { cbtn.disabled = false; cbtn.textContent = orig; }
+    });
+  })();
+</script>
+</body>
+</html>
