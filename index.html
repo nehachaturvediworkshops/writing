@@ -126,22 +126,22 @@
     -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 0.05em 0.14em 0.1em; margin: 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
     font-family: var(--hand); font-weight: 400; font-style: italic; line-height: 1.14;
     font-size: var(--fs, clamp(32px, 3.6vw, 52px)); white-space: nowrap; letter-spacing: 0.07em;
-    color: var(--pink); -webkit-text-fill-color: currentColor;
+    color: var(--blue); -webkit-text-fill-color: currentColor;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,0.85)); opacity: 0.8;
     transition: color .4s ease;
     animation: float calc(var(--hd, 15s) / 2) ease-in-out infinite alternate;
   }
   .head.acc-red  { color: var(--pink); }
-  .head.acc-blue { color: var(--pink); }
+  .head.acc-blue { color: var(--blue); }
   .head:hover, .head:focus-visible, .head[aria-expanded="true"] {
-    background-image: linear-gradient(90deg, var(--pink), var(--pink-soft) 50%, var(--pink));
+    background-image: linear-gradient(90deg, var(--pink), var(--blue) 50%, var(--pink));
     background-size: 300% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
     animation: float calc(var(--hd, 15s) / 2) ease-in-out infinite alternate, hue 5s linear infinite;
   }
   .head.acc-blue:hover, .head.acc-blue:focus-visible, .head.acc-blue[aria-expanded="true"] {
-    background-image: linear-gradient(90deg, var(--pink), var(--pink-soft) 50%, var(--pink));
+    background-image: linear-gradient(90deg, var(--blue), var(--pink) 50%, var(--blue));
   }
   .head:focus-visible { outline: 2px dashed var(--gold); outline-offset: 6px; border-radius: 4px; }
 
@@ -229,9 +229,8 @@
   @media (max-width: 820px) {
     html, body { overflow: hidden; height: 100%; }
     .headline { position: static; animation: none; }
-    .hero { position: absolute; top: 5vh; left: 4vw; right: 4vw; text-align: center; font-size: clamp(24px, 6.6vw, 38px); white-space: normal; color: var(--blue); }
-    .invite { position: absolute; bottom: 5vh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; color: var(--blue); }
-    .hero .gleam, .hero .em-letter, .invite .gleam { background: none; color: var(--blue); -webkit-text-fill-color: var(--blue); animation: none; }
+    .hero { position: absolute; top: 5vh; left: 4vw; right: 4vw; text-align: center; font-size: clamp(24px, 6.6vw, 38px); white-space: normal; }
+    .invite { position: absolute; bottom: 5vh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; }
     .head { font-family: "Shadows Into Light", cursive; font-style: italic; letter-spacing: 0.02em; font-size: clamp(30px, 8vw, 40px); color: var(--blue); -webkit-text-fill-color: var(--blue); animation-name: floatm; }
     .head.acc-red, .head.acc-blue { color: var(--blue); -webkit-text-fill-color: var(--blue); }
     .head[aria-controls="p-writing"]  { top: 24vh; left: 10vw; }
