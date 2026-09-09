@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#0c0807; --ink:#efe7db; --ink-soft:#b6aa98; --gold:#c9a24a; --gold-2:#ecd188; --red:#ff3b52;
+    --hand:"Nothing You Could Do",cursive; --ui:"Roboto",system-ui,sans-serif; }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink);}
+  .card{ position:relative; overflow:hidden; width:1200px; height:630px; margin:0 auto;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:56px 80px;
+    background:
+      radial-gradient(50% 60% at 84% 0%, rgba(201,162,74,0.12), transparent 60%),
+      radial-gradient(44% 60% at 6% 100%, rgba(255,59,82,0.07), transparent 62%),
+      var(--bg); }
+  .mark{ width:118px; height:auto; margin-bottom:20px; }
+  .hero{ font-family:var(--hand); font-weight:400; font-size:104px; line-height:0.98; margin:0; color:var(--gold-2); text-shadow:0 3px 22px rgba(0,0,0,.7); }
+  .hero em{ font-style:normal; background-image:linear-gradient(90deg,var(--gold-2),var(--red) 55%,var(--gold-2)); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+  .tagline{ font-family:var(--hand); font-weight:400; font-size:40px; margin:6px 0 0; color:var(--ink-soft); }
+  .meta{ font-family:var(--ui); font-weight:400; font-size:21px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:30px 0 0; }
+  .sub{ font-family:var(--ui); font-weight:300; font-size:20px; letter-spacing:.05em; color:var(--ink-soft); margin:10px 0 0; }
+</style></head>
+<body>
+<div class="card" id="card">
+  <svg class="mark" viewBox="0 0 220 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="220" y2="0">
+      <stop stop-color="#c9a24a"/><stop offset="0.5" stop-color="#ecd188"/><stop offset="1" stop-color="#c9a24a"/>
+    </linearGradient></defs>
+    <path d="M26 36 Q110 10 194 36" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M40 44 C54 112 166 112 180 44" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+  </svg>
+  <h1 class="hero">Build the <em>container</em></h1>
+  <p class="tagline">for your writing practice.</p>
+  <p class="meta">Neha Chaturvedi &middot; Writing Workshops</p>
+  <p class="sub">Online &middot; 20 September &ndash; 11 October 2026</p>
+</div>
+</body></html>
