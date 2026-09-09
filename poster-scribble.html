@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0c0807; --ink:#efe7db; --ink-soft:#b6aa98; --ink-faint:#857868;
+    --gold:#c9a24a; --gold-2:#ecd188; --red:#ff3b52; --red-soft:#ff6a7c; --blue:#37c6ff; --blue-soft:#7fd8ff;
+    --line:rgba(239,231,219,0.14);
+    --hand:"Nothing You Could Do",cursive; --ui:"Roboto",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased;}
+  .poster{ position:relative; overflow:hidden; width:1080px; height:1350px; margin:0 auto;
+    background:
+      radial-gradient(52% 32% at 84% 5%, rgba(201,162,74,0.10), transparent 60%),
+      radial-gradient(48% 32% at 6% 97%, rgba(55,198,255,0.05), transparent 62%),
+      radial-gradient(44% 28% at 97% 94%, rgba(255,59,82,0.05), transparent 62%),
+      var(--bg); }
+  .poster.story{ height:1920px; }
+
+  .wrap{ position:relative; z-index:1; height:100%; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:110px 104px; }
+
+  .mark{ width:178px; height:auto; margin-bottom:38px; }
+
+  .eyebrow{ font-family:var(--ui); font-weight:500; text-transform:uppercase; letter-spacing:.34em;
+    font-size:18px; color:var(--gold); margin:0 0 34px; }
+
+  .hero{ font-family:var(--hand); font-weight:400; font-size:104px; line-height:1.0; margin:0;
+    color:var(--gold-2); text-shadow:0 3px 22px rgba(0,0,0,.7); }
+  .hero em{ font-style:normal;
+    background-image:linear-gradient(90deg,var(--gold-2),var(--red) 55%,var(--gold-2));
+    -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+  .tagline{ font-family:var(--hand); font-weight:400; font-size:44px; line-height:1.0; margin:8px 0 0;
+    color:var(--ink-soft); }
+
+  .rule{ width:132px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    opacity:.85; margin:52px 0; }
+
+  .kinds{ font-family:var(--ui); font-weight:400; font-size:23px; color:var(--gold-2); margin:0;
+    letter-spacing:.16em; }
+  .who{ font-family:var(--ui); font-weight:100; font-size:24px; color:var(--ink); margin:36px 0 0;
+    max-width:none; line-height:1.6; letter-spacing:.2px; }
+  .format{ font-family:var(--ui); font-weight:400; font-size:16px; color:var(--ink-soft); margin:24px auto 0; max-width:44ch;
+    letter-spacing:.1em; line-height:1.8; text-transform:uppercase; }
+  .dates{ font-family:var(--ui); font-weight:300; font-size:26px; color:var(--gold-2); margin:14px 0 0;
+    letter-spacing:.04em; }
+
+  .with{ font-family:var(--ui); font-weight:500; font-size:15px; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.36em; margin:48px 0 4px; }
+  .name{ font-family:var(--hand); font-weight:400; font-size:58px; line-height:1.0; color:var(--ink); margin:0; }
+
+  .foot{ margin-top:auto; padding-top:52px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .qr{ width:176px; height:176px; border-radius:16px; background:#fff; padding:12px; }
+  .qr img{ width:100%; height:100%; image-rendering:pixelated; display:block; }
+  .cta{ font-family:var(--ui); font-weight:500; font-size:17px; color:var(--gold-2);
+    letter-spacing:.16em; text-transform:uppercase; }
+</style></head>
+<body>
+<div class="poster" id="poster">
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 220 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="220" y2="0">
+        <stop stop-color="#c9a24a"/><stop offset="0.5" stop-color="#ecd188"/><stop offset="1" stop-color="#c9a24a"/>
+      </linearGradient></defs>
+      <path d="M26 36 Q110 10 194 36" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M40 44 C54 112 166 112 180 44" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+    </svg>
+
+    <h1 class="hero">Build the <em>container</em></h1>
+    <p class="tagline">for your writing practice.</p>
+
+    <div class="rule"></div>
+
+    <p class="kinds">Journalistic &middot; Academic &middot; Creative &middot; Introspective</p>
+    <p class="who">For any writer, 14 years and older &mdash;<br>first-timers, the blocked, and those refining a body of work.</p>
+    <p class="format">Online &middot; small groups of 8 &middot; 21 one-hour group sessions &middot; 2 one-to-one reviews &middot; English / Hindi</p>
+    <p class="dates">20 September &ndash; 11 October 2026</p>
+
+    <p class="with">with</p>
+    <p class="name">Neha Chaturvedi</p>
+
+    <div class="foot">
+      <div class="qr"><img src="qr-page.png" alt="Scan for the workshop page" /></div>
+      <div class="cta">scan to explore &amp; register</div>
+    </div>
+  </div>
+</div>
+<script>
+  if(location.search.indexOf('story')>-1) document.getElementById('poster').classList.add('story');
+</script>
+</body></html>
