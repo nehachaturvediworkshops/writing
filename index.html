@@ -82,38 +82,31 @@
   @keyframes floaty { from { translate: 0 0; } to { translate: 0 -8px; } }
 
   .headline { position: absolute; left: 6vw; right: 6vw; bottom: 6vh; z-index: 1; text-align: center; animation: floaty 8s ease-in-out infinite alternate; }
+  @keyframes inkflow { from { background-position: 0 0; } to { background-position: -220% 0; } }
   .hero {
     margin: 0; padding: 0.06em 0.12em 0.1em;
     font-family: "Nothing You Could Do", cursive; font-weight: 400; line-height: 1.15; white-space: nowrap;
     font-size: min(3.25vw, 47px);
-    color: var(--gold-2); text-shadow: 0 2px 14px rgba(0,0,0,0.85); opacity: 0.9;
+    color: var(--ink); opacity: 0.92;
   }
-  .hero em {
-    font-style: normal; text-shadow: none;
-    background-image: linear-gradient(90deg, var(--gold-2), var(--red) 50%, var(--gold-2));
-    background-size: 300% 100%;
+  .hero em, .hero .em-letter, .hero .gleam {
+    background-image: linear-gradient(90deg, var(--ink) 0%, var(--ink) 40%, #241c14 50%, var(--ink) 60%, var(--ink) 100%);
+    background-size: 220% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
-    animation: hue 6s linear infinite;
-  }
-  .hero .em-letter {
-    background-image: linear-gradient(90deg, var(--gold-2), var(--red) 50%, var(--gold-2));
-    background-size: 300% 100%;
-    -webkit-background-clip: text; background-clip: text;
-    color: transparent; -webkit-text-fill-color: transparent;
-    animation: hue 6s linear infinite;
-  }
-  .hero .gleam, .invite .gleam {
-    background-image: linear-gradient(90deg, var(--gold), #fff4cf 25%, var(--gold-2) 50%, #fff4cf 75%, var(--gold));
-    background-size: 300% 100%;
-    -webkit-background-clip: text; background-clip: text;
-    color: transparent; -webkit-text-fill-color: transparent;
-    animation: hue 4s linear infinite;
+    animation: inkflow 9s linear infinite;
   }
   .invite {
     margin: 0.9em auto 0; max-width: none;
     font-family: "Roboto", sans-serif; font-weight: 100; font-style: normal;
-    white-space: nowrap; font-size: min(1.6vw, 24px); color: var(--ink-soft); letter-spacing: 0.5px; line-height: 1.5; opacity: 0.85;
+    white-space: nowrap; font-size: min(1.6vw, 24px); letter-spacing: 0.5px; line-height: 1.5; color: var(--ink-soft); opacity: 0.85;
+  }
+  .invite .gleam {
+    background-image: linear-gradient(90deg, var(--ink-soft) 0%, var(--ink-soft) 40%, #241c14 50%, var(--ink-soft) 60%, var(--ink-soft) 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+    animation: inkflow 9s linear infinite;
   }
 
   .head {
@@ -220,9 +213,6 @@
     .headline { position: static; animation: none; }
     .hero { position: absolute; top: 8dvh; left: 4vw; right: 4vw; text-align: center; font-size: clamp(24px, 6.6vw, 38px); white-space: normal; }
     .invite { position: absolute; bottom: 8dvh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; }
-    .hero .gleam { background-image: linear-gradient(90deg, var(--ink), #2a2018 50%, var(--ink)); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: hue 7s linear infinite; }
-    .invite .gleam { background-image: linear-gradient(90deg, var(--ink-soft), #2a2018 50%, var(--ink-soft)); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: hue 7s linear infinite; }
-    .hero .em-letter { background-image: linear-gradient(90deg, var(--ink), #2a2018 50%, var(--ink)); animation: hue 7s linear infinite; }
     .head { font-family: "Shadows Into Light", cursive; font-style: italic; letter-spacing: 0.02em; font-size: clamp(30px, 8vw, 40px); animation-name: floatm, hue; }
     .head[aria-controls="p-writing"]  { top: 24vh; left: 10vw; }
     .head[aria-controls="p-formats"]  { top: 30vh; left: 44vw; }
@@ -615,6 +605,11 @@
           var off = (dir || 1) * amp * (1 - Math.pow(2 * p - 1, 2));
           s.style.transform = 'translateY(' + off.toFixed(1) + 'px)';
         });
+      });
+      var elRect = el.getBoundingClientRect();
+      spans.forEach(function (s) {
+        var xf = (s.getBoundingClientRect().left - elRect.left) / (elRect.width || 1);
+        s.style.animationDelay = (-xf * 9).toFixed(2) + 's';
       });
     }
     function run() { var mob = window.innerWidth < 820; curve(document.querySelector('.hero'), mob ? 0.28 : 0.26, mob ? -1 : 1); curve(document.querySelector('.invite'), mob ? 0.38 : 0.44, 1); }
