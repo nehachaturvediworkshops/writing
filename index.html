@@ -90,7 +90,7 @@
     color: var(--ink); opacity: 0.92;
   }
   .hero em, .hero .em-letter, .hero .gleam {
-    background-image: linear-gradient(90deg, var(--ink) 0%, var(--ink) 26%, #241c14 50%, var(--ink) 74%, var(--ink) 100%);
+    background-image: linear-gradient(90deg, var(--ink) 0%, var(--ink) 30%, #241c14 50%, var(--ink) 70%, var(--ink) 100%);
     background-size: 220% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
@@ -102,7 +102,7 @@
     white-space: nowrap; font-size: min(1.6vw, 24px); letter-spacing: 0.5px; line-height: 1.5; color: var(--ink-soft); opacity: 0.85;
   }
   .invite .gleam {
-    background-image: linear-gradient(90deg, var(--ink-soft) 0%, var(--ink-soft) 26%, #241c14 50%, var(--ink-soft) 74%, var(--ink-soft) 100%);
+    background-image: linear-gradient(90deg, var(--ink-soft) 0%, var(--ink-soft) 30%, #241c14 50%, var(--ink-soft) 70%, var(--ink-soft) 100%);
     background-size: 220% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
@@ -213,6 +213,8 @@
     .headline { position: static; animation: none; }
     .hero { position: absolute; top: 8dvh; left: 4vw; right: 4vw; text-align: center; font-size: clamp(24px, 6.6vw, 38px); white-space: normal; }
     .invite { position: absolute; bottom: 8dvh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; }
+    .hero em, .hero .em-letter, .hero .gleam { background-image: linear-gradient(90deg, var(--ink) 0%, var(--ink) 40%, #241c14 50%, var(--ink) 60%, var(--ink) 100%); }
+    .invite .gleam { background-image: linear-gradient(90deg, var(--ink-soft) 0%, var(--ink-soft) 40%, #241c14 50%, var(--ink-soft) 60%, var(--ink-soft) 100%); }
     .head { font-family: "Shadows Into Light", cursive; font-style: italic; letter-spacing: 0.02em; font-size: clamp(30px, 8vw, 40px); animation-name: floatm, hue; }
     .head[aria-controls="p-writing"]  { top: 24vh; left: 10vw; }
     .head[aria-controls="p-formats"]  { top: 30vh; left: 44vw; }
