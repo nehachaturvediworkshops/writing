@@ -215,16 +215,16 @@
   /* ============ mobile: stack the poster ============ */
   @media (max-width: 820px) {
     html, body { overflow: hidden; height: 100%; }
-    .headline { top: 52vh; bottom: auto; left: 5vw; right: 5vw; width: auto; }
+    .headline { top: 63vh; bottom: auto; left: 5vw; right: 5vw; width: auto; }
     .hero { font-size: clamp(24px, 6.6vw, 38px); white-space: normal; }
     .invite { white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; color: var(--ink); }
-    .head { font-size: clamp(26px, 7.4vw, 34px); animation-name: floatm; }
-    .head[aria-controls="p-writing"]  { top: 10vh; left: 10vw; }
-    .head[aria-controls="p-formats"]  { top: 10vh; left: 52vw; }
-    .head[aria-controls="p-neha"]     { top: 20vh; left: 24vw; }
-    .head[aria-controls="p-register"] { top: 30vh; left: 52vw; }
-    .head[aria-controls="p-reviews"]  { top: 32vh; left: 8vw; }
-    .head[aria-controls="p-contact"]  { top: 42vh; left: 30vw; }
+    .head { font-size: clamp(34px, 9.4vw, 44px); animation-name: floatm; }
+    .head[aria-controls="p-writing"]  { top: 11vh; left: 8vw; }
+    .head[aria-controls="p-formats"]  { top: 11vh; left: 46vw; }
+    .head[aria-controls="p-neha"]     { top: 23vh; left: 20vw; }
+    .head[aria-controls="p-register"] { top: 35vh; left: 50vw; }
+    .head[aria-controls="p-reviews"]  { top: 37vh; left: 8vw; }
+    .head[aria-controls="p-contact"]  { top: 50vh; left: 26vw; }
     .run { font-size: 2.9vw; }
     .hint { display: none; }
     .body { margin: 5vh auto; padding: 26px 22px 30px; }
@@ -251,7 +251,7 @@
   <button class="head acc-red"  style="--t:24vh; --l:33vw; --hd:14s;" aria-expanded="false" aria-controls="p-neha">about&nbsp;neha</button>
   <button class="head acc-red"  style="--t:34vh; --l:54vw; --hd:15s;" aria-expanded="false" aria-controls="p-register">register</button>
   <button class="head acc-blue" style="--t:36vh; --l:12vw; --hd:17s;" aria-expanded="false" aria-controls="p-reviews">reviews</button>
-  <button class="head acc-blue" style="--t:46vh; --l:60vw; --hd:18s;" aria-expanded="false" aria-controls="p-contact">keep&nbsp;in&nbsp;touch</button>
+  <button class="head acc-blue" style="--t:46vh; --l:66vw; --hd:18s;" aria-expanded="false" aria-controls="p-contact">keep&nbsp;in&nbsp;touch</button>
 
 </main>
 
@@ -613,7 +613,7 @@
         });
       });
     }
-    function run() { curve(document.querySelector('.hero'), 0.14); curve(document.querySelector('.invite'), 0.26); }
+    function run() { curve(document.querySelector('.hero'), 0.19); curve(document.querySelector('.invite'), 0.34); }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else setTimeout(run, 300);
   })();
 </script>
