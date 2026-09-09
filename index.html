@@ -89,14 +89,14 @@
   }
   .hero em {
     font-style: normal; text-shadow: none;
-    background-image: linear-gradient(90deg, var(--red), var(--blue) 50%, var(--red));
+    background-image: linear-gradient(90deg, var(--gold-2), var(--red) 50%, var(--gold-2));
     background-size: 300% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
     animation: hue 6s linear infinite;
   }
   .hero .em-letter {
-    background-image: linear-gradient(90deg, var(--red), var(--blue) 50%, var(--red));
+    background-image: linear-gradient(90deg, var(--gold-2), var(--red) 50%, var(--gold-2));
     background-size: 300% 100%;
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
@@ -112,7 +112,7 @@
     position: absolute; top: var(--t); left: var(--l);
     -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 0.05em 0.14em 0.1em; margin: 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
     font-family: var(--hand); font-weight: 400; line-height: 1.14;
-    font-size: var(--fs, clamp(32px, 3.8vw, 56px)); white-space: nowrap;
+    font-size: var(--fs, clamp(38px, 4.4vw, 64px)); white-space: nowrap; letter-spacing: 0.07em;
     color: var(--blue); -webkit-text-fill-color: currentColor;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,0.85)); opacity: 0.8;
     transition: color .4s ease;
@@ -251,7 +251,7 @@
   <button class="head acc-red"  style="--t:24vh; --l:33vw; --hd:14s;" aria-expanded="false" aria-controls="p-neha">about&nbsp;neha</button>
   <button class="head acc-red"  style="--t:34vh; --l:54vw; --hd:15s;" aria-expanded="false" aria-controls="p-register">register</button>
   <button class="head acc-blue" style="--t:36vh; --l:12vw; --hd:17s;" aria-expanded="false" aria-controls="p-reviews">reviews</button>
-  <button class="head acc-blue" style="--t:46vh; --l:40vw; --hd:18s;" aria-expanded="false" aria-controls="p-contact">keep&nbsp;in&nbsp;touch</button>
+  <button class="head acc-blue" style="--t:46vh; --l:60vw; --hd:18s;" aria-expanded="false" aria-controls="p-contact">keep&nbsp;in&nbsp;touch</button>
 
 </main>
 
@@ -613,7 +613,7 @@
         });
       });
     }
-    function run() { curve(document.querySelector('.hero'), 0.14); }
+    function run() { curve(document.querySelector('.hero'), 0.14); curve(document.querySelector('.invite'), 0.26); }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else setTimeout(run, 300);
   })();
 </script>
