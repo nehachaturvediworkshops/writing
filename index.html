@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Patrick+Hand&family=Nothing+You+Could+Do&family=Mrs+Saint+Delafield&family=Kalam:wght@300;400&family=Liu+Jian+Mao+Cao&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Patrick+Hand&family=Nothing+You+Could+Do&family=Mrs+Saint+Delafield&family=Kalam:wght@300;400&family=Liu+Jian+Mao+Cao&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Roboto:wght@100;300&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -32,7 +32,7 @@
     --line:      rgba(239, 231, 219, 0.14);
     --line-soft: rgba(239, 231, 219, 0.07);
     --hand:      "Mrs Saint Delafield", "Segoe Script", cursive;
-    --scribble:  "Mrs Saint Delafield", "Kalam", "Liu Jian Mao Cao", cursive;
+    --scribble:  "Caveat", "Kalam", "Liu Jian Mao Cao", cursive;
     --serif:     "Spectral", Georgia, serif;
     --display:   "Cormorant Garamond", Georgia, serif;
     --ui:        "Inter", system-ui, sans-serif;
@@ -448,7 +448,7 @@
     var ops   = [0.03, 0.05, 0.03, 0.08, 0.03, 0.05, 0.03, 0.07, 0.03, 0.045];
     var tints = ['', '', ' g', '', '', ' b', '', '', ' r', ''];
     var frag = document.createDocumentFragment();
-    for (var i = 0, N = window.innerWidth < 820 ? 38 : 55; i < N; i++) {
+    for (var i = 0, lh = (window.innerWidth < 820 ? 0.029 : 0.015) * window.innerWidth * 1.4, N = Math.ceil(window.innerHeight / lh) + 4; i < N; i++) {
       var line = document.createElement('div');
       line.className = 'line' + tints[i % tints.length] + (i % 2 ? ' rev' : '');
       line.style.setProperty('--op', ops[i % ops.length]);
