@@ -38,7 +38,7 @@
     --line:      rgba(239, 231, 219, 0.14);
     --line-soft: rgba(239, 231, 219, 0.07);
     --hand:      "Mrs Saint Delafield", "Segoe Script", cursive;
-    --scribble:  "Caveat", "Kalam", "Liu Jian Mao Cao", cursive;
+    --scribble:  "Caveat", "Kalam", cursive;
     --serif:     "Spectral", Georgia, serif;
     --display:   "Cormorant Garamond", Georgia, serif;
     --ui:        "Inter", system-ui, sans-serif;
@@ -230,9 +230,9 @@
     html, body { overflow: hidden; height: 100%; }
     .headline { position: static; animation: none; }
     .hero { position: absolute; top: 5vh; left: 4vw; right: 4vw; text-align: center; font-size: clamp(24px, 6.6vw, 38px); white-space: normal; }
-    .invite { position: absolute; bottom: 5vh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; }
+    .invite { position: absolute; bottom: 10vh; left: 4vw; right: 4vw; text-align: center; margin: 0; white-space: normal; font-size: clamp(18px, 4.8vw, 24px); font-weight: 300; }
     .head { font-family: "Shadows Into Light", cursive; font-style: italic; letter-spacing: 0.02em; font-size: clamp(30px, 8vw, 40px); color: var(--blue); -webkit-text-fill-color: var(--blue); animation-name: floatm; }
-    .head.acc-red, .head.acc-blue { color: var(--blue); -webkit-text-fill-color: var(--blue); }
+    .head.acc-red, .head.acc-blue { color: var(--blue); }
     .head[aria-controls="p-writing"]  { top: 24vh; left: 10vw; }
     .head[aria-controls="p-formats"]  { top: 30vh; left: 44vw; }
     .head[aria-controls="p-neha"]     { top: 38vh; left: 18vw; }
@@ -446,7 +446,6 @@
     if (!river) return;
     var pool = (
       'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz' +
-      '写作练习文字容器心笔纸语言创沉思自由流之向而己找根听声音书者道空' +
       'लखनकदसमझजैवोगपतरंशब्दीे'
     ).split('');
     function rnd(n){ return Math.floor(Math.random() * n); }
