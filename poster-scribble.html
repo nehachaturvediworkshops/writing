@@ -20,6 +20,9 @@
       radial-gradient(44% 28% at 97% 94%, rgba(255,59,82,0.05), transparent 62%),
       var(--bg); }
   .poster.story{ height:1920px; }
+  .grain{ position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.45; mix-blend-mode:soft-light;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="160" height="160" filter="url(%23n)"/></svg>'); background-size:160px 160px; }
+  .art{ position:absolute; z-index:0; pointer-events:none; opacity:.06; left:50%; top:48%; transform:translate(-50%,-50%); width:80%; }
 
   .wrap{ position:relative; z-index:1; height:100%; display:flex; flex-direction:column;
     align-items:center; justify-content:center; text-align:center; padding:110px 104px; }
@@ -61,6 +64,11 @@
 </style></head>
 <body>
 <div class="poster" id="poster">
+  <div class="grain"></div>
+  <svg class="art" viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M40 60 Q200 12 360 60" stroke="#c9a24a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M70 74 C95 232 305 232 330 74" stroke="#c9a24a" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
   <div class="wrap">
     <svg class="mark" viewBox="0 0 220 132" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs><linearGradient id="g" x1="0" y1="0" x2="220" y2="0">
