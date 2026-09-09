@@ -551,11 +551,10 @@
       finally { cbtn.disabled = false; cbtn.textContent = orig; }
     });
   })();
-  /* ---------- wavy hero + subhead: per-letter wave, words still wrap ---------- */
+  /* ---------- bowl-curve hero + subhead (option 2): each line cradled in a U ---------- */
   (function () {
-    function waveify(el, amp, period) {
-      if (!el) return;
-      var idx = 0;
+    function wrap(el) {
+      var spans = [];
       function build(text) {
         var frag = document.createDocumentFragment();
         text.split(/(\s+)/).forEach(function (tok) {
@@ -564,25 +563,33 @@
           var word = document.createElement('span');
           word.style.display = 'inline-block'; word.style.whiteSpace = 'nowrap';
           tok.split('').forEach(function (ch) {
-            var s = document.createElement('span');
-            s.style.display = 'inline-block'; s.textContent = ch;
-            s.style.transform = 'translateY(' + (Math.sin(idx / period) * amp).toFixed(1) + 'px)';
-            idx++; word.appendChild(s);
+            var s = document.createElement('span'); s.style.display = 'inline-block'; s.textContent = ch;
+            word.appendChild(s); spans.push(s);
           });
           frag.appendChild(word);
         });
         return frag;
       }
-      function walk(node) {
-        [].slice.call(node.childNodes).forEach(function (k) {
-          if (k.nodeType === 3) node.replaceChild(build(k.textContent), k);
-          else if (k.nodeType === 1) walk(k);
-        });
-      }
-      walk(el);
+      function walk(node) { [].slice.call(node.childNodes).forEach(function (k) { if (k.nodeType === 3) node.replaceChild(build(k.textContent), k); else if (k.nodeType === 1) walk(k); }); }
+      walk(el); return spans;
     }
-    waveify(document.querySelector('.hero'), 7, 2.2);
-    waveify(document.querySelector('.invite'), 5, 2.8);
+    function bowl(el) {
+      if (!el) return;
+      var amp = parseFloat(getComputedStyle(el).fontSize) * 0.2;
+      var spans = wrap(el);
+      var lines = {};
+      spans.forEach(function (s) { var y = Math.round(s.offsetTop / 8) * 8; (lines[y] = lines[y] || []).push(s); });
+      Object.keys(lines).forEach(function (y) {
+        var L = lines[y], n = L.length;
+        L.forEach(function (s, i) {
+          var p = n > 1 ? i / (n - 1) : 0.5;
+          var off = amp * (1 - Math.pow(2 * p - 1, 2));
+          s.style.transform = 'translateY(' + off.toFixed(1) + 'px)';
+        });
+      });
+    }
+    function run() { bowl(document.querySelector('.hero')); bowl(document.querySelector('.invite')); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else setTimeout(run, 300);
   })();
 </script>
 </body>
